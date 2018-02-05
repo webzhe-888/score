@@ -1,0 +1,183 @@
+/*顶部tab*/
+.header{
+	height: 1.2rem;
+	position: relative;
+	border-bottom: 2px solid #e6e6e6;
+	/*box-sizing: border-box;*/
+}
+.tyrant-wrap{
+	padding-bottom: 1.0rem;
+}
+.cat-wrap{
+	display: none;
+}
+.back-wrap{
+	position: absolute;
+	top: 0.373333rem;
+	left: 0.493333rem;
+}
+.back{
+	display: inline-block;
+    width: 0.266667rem;
+    height: 0.4rem;
+    background: url(../img/back.png) no-repeat;
+    background-size: 0.266667rem 0.426667rem;
+    vertical-align: middle;
+}
+.title{
+	width: 8.0rem;
+	margin: 0 auto;
+	font-size: 0.426667rem;
+}
+.title-item{
+	cursor: pointer;
+	float: left;
+	width: 50%;
+	text-align: center;
+}
+.title-item span{
+	display: inline-block;
+	line-height: 1.133333rem;
+	box-sizing: border-box;
+	font-weight: bold;
+}
+.title-item .active{
+	border-bottom: 0.08rem solid #2ea3e4;
+}
+/*first*/
+.list-item{
+	border-bottom: 0.026667rem solid #e6e6e6;
+	padding: 0.46rem 0.32rem;
+	position: relative;
+	z-index: 100;
+}
+.list-item>div{
+	display: inline-block;
+	vertical-align: middle;
+}
+.list-item-bg{
+	width: 0.52rem;
+	height: 0.746667rem;
+}
+.list-item-bg img{
+	width: 100%;
+}
+.firstimg{
+	width: 4.84rem;
+	height: 2.56rem;
+	position: relative;
+	z-index: 100;
+}
+.firstimg img{
+	width: 100%;
+}
+.first-right{
+	margin-left: 2.026667rem;
+	position: relative;
+	text-align: center;
+}
+.first-userbg{
+	width: 1.94rem;
+	height:1.94rem;
+	border-radius:50%;
+	overflow: hidden;
+	position: absolute;
+	left: 1.22rem;
+	top:0.56666rem;
+	z-index: 99;
+}
+.first-userbg img{
+	width: 100%;
+}
+.userbg{
+	width: 1.4rem;
+	height:1.4rem;
+	border-radius:50%;
+	overflow: hidden;
+	position: absolute;
+	left: 1.76rem;
+	top:0.82rem;
+	z-index: 99;
+}
+.userbg img{
+	width: 100%;
+}
+.user-num .firstnum{
+	color: #535f63;
+}
+.info{
+	margin-left: 0.613333rem;
+}
+.user-info{
+	color: #334146;
+	font-size: 0.373333rem;
+	margin:0 0 0.133333rem;
+}
+.user-info img{
+	width: 0.346667rem;
+	height: 0.346667rem;
+}
+.user-info span{
+	display: inline-block;
+	vertical-align: middle;
+}
+.user-num{
+	color: #73858a;
+	font-size: 0.32rem;
+	line-height: 0.533333rem;
+	margin:0 0 0.133333rem;
+}
+.user-num span{
+	color: #a0a2b2;
+}
+
+.second-bg{
+	width: 1.813333rem;
+	height: 1.813333rem;
+	margin-left: 0.613333rem;
+	position: relative;
+	z-index: 100;
+}
+.second-bg img{
+	width: 100%;
+}
+/*four*/
+.four{
+	padding: 0.266667rem;
+}
+.four-left{
+	color: #78868c;
+}
+.four-bg{
+	width: 1.04rem;
+	height: 1.04rem;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-left: 0.613333rem;
+}
+
+.four-bg img{
+	width: 100%;
+}
+
+/*底部信息*/
+.score-wrap{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	background-color: #ffffff;
+	z-index: 101;
+}
+.myscore{
+	line-height: 1.0rem;
+	font-size: 0.32rem;
+	color: #98a5a9;
+	padding: 0 0.52rem;
+	border-top: 1px solid #e6e6e6;
+}
+.myscore i{
+	color: #535f63;
+}
+.myscore em{
+	float: right;
+}

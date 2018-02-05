@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>榜单</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+	</head>
+	<body>
+		<!--顶部导航-->
+		<div class="header">
+			<a href="javascript:void(0);" class="back-wrap"><i class="back"></i></a>
+			<ul class="title clear">
+				<li class="title-item tyrant">
+					<span class="active">土豪榜</span>
+				</li>
+				<li class="title-item cat">
+					<span>明星榜</span>
+				</li>
+			</ul>
+		</div>
+		<div id="tyrant"></div>
+		<!--土豪榜-->
+		<script type="text/template" id="bt-tyrant">
+		<ul class="tyrant-wrap"> 
+			<%for(var i=0;i<data.data.length;i++){%>
+			<%if(data.data[i].sort == 1){%>
+				<li class="list-item first">
+					<div class="list-item-bg first-left">
+						<img src="img/first.png"/>
+					</div>
+					<div class="first-right">
+						<div class="firstimg"><img src="img/firstbg.png"/></div>
+						<div class="first-userbg">
+							<img src="<%=data.data[i].img%>"/>
+						</div>
+						<p class="user-info">
+							<span class="user-name"><%=data.data[i].name%></span>
+							<%if(data.data[i].gender == 1){%>
+								<span><img src="img/female.png"/></span>
+							<%}%>
+						</p>
+						<p class="user-num">
+							&nbsp;&nbsp;&nbsp;贡献 <span class="firstnum"><%=data.data[i].diamondnum%></span> 钻
+						</p>
+					</div>
+				</li>
+			<%}else if(data.data[i].sort == 2){%>
+				<li class="list-item second">
+					<div class="list-item-bg second-left">
+						<img src="img/second.png"/>
+					</div>
+					<div class="second-bg">
+						<img src="img/nopicbg.png"/>
+					</div>
+					<div class="info">
+						<p class="user-info">
+							<span class="user-name"><%=data.data[i].name%></span>
+							<%if(data.data[i].gender == 1){%>
+								<span><img src="img/female.png"/></span>
+							<%}%>
+						</p>
+						<p class="user-num">
+							贡献<span><%=data.data[i].diamondnum%></span>钻
+						</p>
+					</div>
+				</li>
+			<%}else if(data.data[i].sort == 3){%>
+				<li class="list-item third">
+					<div class="list-item-bg third-left">
+						<img src="img/third.png"/>
+					</div>
+					<div class="second-bg">
+						<img src="img/thirdbg.png"/>
+					</div>
+					<div class="userbg">
+						<img src="<%=data.data[i].img%>"/>
+					</div>
+					<div class="info">
+						<p class="user-info">
+							<span class="user-name"><%=data.data[i].name%></span>
+							<%if(data.data[i].gender == 1){%>
+								<span><img src="img/female.png"/></span>
+							<%}%>
+						</p>
+						<p class="user-num">
+							贡献<span><%=data.data[i].diamondnum%></span>钻
+						</p>
+					</div>
+				</li>
+			<%}else{%>
+				<li class="list-item four">
+					<div class="four-left">
+						NO.<span><%=data.data[i].sort%></span>
+					</div>
+					<div class="four-bg">
+						<img src="<%=data.data[i].img%>"/>
+					</div>
+					<div class="info">
+						<p class="user-info">
+							<span class="user-name"><%=data.data[i].name%></span>
+							<%if(data.data[i].gender == 1){%>
+								<span><img src="img/female.png"/></span>
+							<%}%>
+						</p>
+						<p class="user-num">
+							贡献<span><%=data.data[i].diamondnum%></span>钻
+						</p>
+					</div>
+				</li>
+			<%}%>
+			
+			<%}%>
+			<div class="score-wrap">
+				<p class="myscore">
+					我的排名：<i><%=data.rank%></i> <em>榜单每小时更新一次</em>
+				</p>
+			</div>
+		</ul>
+		</script>
+		<!--明星榜-->
+		<ul class="cat-wrap"></ul>
+	</body>
+	<script src="js/flexible.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/baiduTemplate.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			//土豪榜
+			$('.tyrant').on("click",function(){
+				$('.tyrant-wrap').show();
+				$('.tyrant').find('span').addClass('active');
+				$('.cat-wrap').hide();
+				$('.cat').find('span').removeClass('active');
+			});
+			//月猫榜
+			$('.cat').on("click",function(){
+				$('.tyrant-wrap').hide();
+				$('.tyrant').find('span').removeClass('active');
+				$('.cat-wrap').show();
+				$('.cat').find('span').addClass('active');
+			});
+			$.get("mook/data.json", function(data) {
+				if (data.code == 0) {
+					var bt = baidu.template;
+					var html = bt('bt-tyrant',{data:data});
+					$('#tyrant').append(html);
+				}
+			}, 'json');
+		});
+	</script>
+</html>
